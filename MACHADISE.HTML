@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ZIONERS_MACHADISE.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Zioners Merchandise</title>
+    <script src="ZIONERS_MACHADISE.JS" defer></script>
+    <style>
+        .product-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .product-popup.visible {
+            display: flex;
+            opacity: 1;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-popup.visible .popup-content {
+            transform: scale(1);
+        }
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+            line-height: 1;
+        }
+        .close-popup:hover {
+            color: #ff6600;
+        }
+        .popup-product-image {
+            max-width: 80%;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .popup-product-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .popup-product-price {
+            font-size: 1.5rem;
+            color: #ff6600;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .popup-product-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .popup-add-to-cart {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        .popup-add-to-cart:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <div class="logo">
+            <span>ZIONERS</span> BAND
+        </div>
+        <ul class="nav-links" id="main-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#cart">Cart <span class="cart-count">(0)</span></a></li>
+            <li><a href="index.HTML">Main Site</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="auth-dropdown">Account</button>
+            <ul class="auth-dropdown-menu">
+                <li style="--i:1"><a href="login.html">Login</a></li>
+                <li style="--i:2"><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <a href="#home" class="home-button" aria-label="Go to Home">
+        <i class="fa-solid fa-house"></i>
+    </a>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="promo-banner">
+            <p>Free shipping on orders over KES 5,000!</p>
+        </div>
+        <div class="logo header-logo">
+            <img src="MEDIA/Logo.png" alt="Zioners Logo">
+        </div>
+        <h1>Welcome to the Official Zioners Merch Store</h1>
+        <p>Discover exclusive merchandise inspired by the Zioners Band.</p>
+        <p class="tagline">"Wear the music, live the vibe."</p>
+        <div class="welcome-message">
+            <p>Welcome, Guest! <a href="login.html">Login</a> or <a href="register.html">Register</a></p>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                
+                <li class="dropdown">
+                    <a href="#categories">Categories</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#shirts">Shirts</a></li>
+                        <li><a href="#hoodies">Hoodies</a></li>
+                        <li><a href="#waterbottle">Water-bottle</a></li>
+                        <li><a href="#backpack">Backpack</a></li>
+                        <li><a href="#caps">caps</a></li>
+                    </ul>
+                </li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </nav>
+        <div class="header-extras">
+            <form class="search-bar" id="header-search-bar">
+                <input type="text" id="header-search-input" placeholder="Search for products..." aria-label="Search products" />
+                <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100093442217782&mibextid=rS40aB7S9Ucbxw6v" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/p/DJWNxOzov1f/?igsh=OTR2YTVqdmdhaWlp" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+            <a href="login.html" class="user-account-link">Login</a>
+            <a href="register.html" class="user-account-link"> Register</a>
+        </div>
+        <div class="cart-icon header-cart-icon">
+            <a href="#cart" aria-label="View Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count header-cart-count-display">(0)</span>
+            </a>
+        </div>
+        <a href="#shop" class="shop-now-button">Shop Now</a>
+        <div class="contact-info">
+            <p>Call us: <a href="tel:+254700123456">+254 722375623</a> | Email: <a href="mailto:support@zioners.com">zionersband22@gmail.com</a></p>
+        </div>
+    </header>
+   
+    <!-- Featured Merch Section -->
+    <section class="featured-merch" id="shirts" id="Backpack"   id="Hoodies" id="Caps" id="Jacket">
+        <h2>New Arrivals</h2>
+        <div class="merch-grid" id="featured-merch-grid">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Shop Page -->
+    <section class="shop-page" id="shop">
+        <h2>Shop by Category</h2>
+        <div class="filters">
+           
+            <a href="#shirts"><button class="filter-button"  data-category="shirts">Shirts</button></a>
+            <a href="#Hoodies"><button class="filter-button" data-category="hoodies">Hoodies</button></a>
+            <a href="#Caps"><button class="filter-button" data-category="caps">Caps</button></a>
+            <a href="#Jackets"><button class="filter-button" data-category="jackets">Jackets</button></a>
+            <a href="#Backpack"><button class="filter-button" data-category="backpack">Backpack</button></a>
+            
+        </div>
+    </section>
+
+    <!-- Product Details Page -->
+    <section class="product-details" id="product-details" style="display: none;">
+        
+        <div class="product-info">
+            <h2>Product Name</h2>
+            <p id="details-material">Material: ...</p>
+            <p id="details-fit">Fit: ...</p>
+            <p id="details-washing">Washing Instructions: ...</p>
+            <p id="details-price">Price: KES 0.00</p>
+            <div class="options-group">
+                <label for="size">Size:</label>
+                <select id="size">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">Extra Large</option>
+                </select>
+            </div>
+            <div class="options-group">
+                <label for="color">Color:</label>
+                <select id="color">
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                </select>
+            </div>
+            <div class="options-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+            </div>
+            <button class="add-to-cart-button">Add to Cart</button>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+    </section>
+
+    <!-- FAQ & Policies -->
+    <section class="faq-policies" id="faq">
+        <h2>FAQ & Policies</h2>
+        <h3>Shipping Info</h3>
+        <p>We ship locally and internationally. Delivery times vary by location.</p>
+        <h3>Return/Exchange Policy</h3>
+        <p>Returns are accepted within 30 days of purchase. Items must be unused and in original packaging.</p>
+        <h3>Size Chart</h3>
+        <p>Refer to our size chart for accurate measurements.</p>
+        <h3>Payment Options</h3>
+        <p>We accept MPESA, PayPal, and major credit cards.</p>
+    </section>
+
+    <!-- Cart & Checkout -->
+    <section class="cart-checkout" id="cart">
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+            <p class="cart-empty-message">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-summary" style="display: none;">
+            <h3>Order Summary</h3>
+            <p>Subtotal: <span id="cart-subtotal">KES 0.00</span></p>
+            <p>Shipping: <span id="cart-shipping">KES 0.00</span></p>
+            <p><strong>Total: <span id="cart-total">KES 0.00</span></strong></p>
+        </div>
+        <div class="cart-actions">
+            <a href="#shop" class="continue-shopping">Continue Shopping</a>
+            <a href="#checkout" class="checkout" id="proceed-checkout-button">Proceed to Checkout</a>
+            <button class="delete-all-button" id="clear-cart-button">Clear Cart</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#faq">FAQ</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-of-service">Terms of Service</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p>&copy; <span id="current-year">2023</span> Zioners Band. All rights reserved.</p>
+        <p class="copyright">
+            Designed with <i class="fa-solid fa-heart" style="color: #ff6600;"></i> by Zioners Web Team.
+        </p>
+    </footer>
+
+    <!-- PRODUCT POPUP HTML STRUCTURE (Essential for Quick View) -->
+    <div class="product-popup" id="quick-view-popup">
+        <div class="popup-content">
+            <button class="close-popup" aria-label="Close quick view">&times;</button>
+            <img src="" alt="Product Image" class="popup-product-image">
+            <h3 class="popup-product-title">Product Title</h3>
+            <p class="popup-product-price">KES 0.00</p>
+            <p class="popup-product-description">Product description goes here.</p>
+            <button class="popup-add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</body>
+</html>

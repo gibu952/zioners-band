@@ -1,0 +1,199 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Modern font */
+    background: linear-gradient(135deg, rgb(85, 1, 85), #2575fc);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header a{
+    color: #ff8c00;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase; /* Uppercase text */
+    color: #ff8c00; /* Change text color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px; /* Add spacing */
+}
+
+.auth-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow */
+    transition: transform 0.2s ease; /* Add hover effect */
+}
+
+.auth-form input::placeholder {
+    color: rgba(51, 51, 51, 0.7);
+    font-style: italic;
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    transform: scale(1.02); /* Slightly enlarge on focus */
+    outline: none; /* Remove default outline */
+}
+
+.auth-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background: #ff8c00;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Add spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.auth-form button.button-clicked {
+    transform: scale(0.95); /* Shrink slightly on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+.auth-form button:hover {
+    background: #1a5bb8;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.auth-form a {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-style: italic; /* Italicize links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.auth-form a:hover {
+    text-decoration: none;
+    color: #ffcc00; /* Highlight link on hover */
+}
+
+.error-message {
+    background: rgba(255, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95rem; /* Slightly larger font */
+    border: 1px solid rgba(255, 0, 0, 0.8); /* Add border */
+    animation: shake 0.5s; /* Add shake animation */
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: 100%; /* Adjust width since the button is removed */
+}
+
+.google-login {
+    width: 100%;
+    padding: 10px;
+    background: #db4437;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Add spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.google-login:hover {
+    background: #a33328;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff8c00;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: #ff8c00;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffcc00; /* Highlight footer links on hover */
+}

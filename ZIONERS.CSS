@@ -1,0 +1,756 @@
+/* Navbar styling */
+.navbar {
+    background-color: #1a1a1a; /* Darker background for better contrast */
+    height: 80px; /* Increased height for better visibility */
+    padding: 1rem 2rem; /* Added horizontal padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    transition: all 0.4s ease; /* Improved transition */
+    position: sticky; /* Make navbar sticky */
+    top: 0; /* Stick to top */
+    z-index: 1000; /* Ensure navbar stays above other content */
+}
+
+.navbar:hover {
+    background-color: #252525; /* Subtle hover effect */
+}
+
+/* Navbar animation on scroll */
+.navbar.scrolled {
+    background-color: rgba(15, 15, 15, 0.95); /* Semi-transparent dark background */
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    height: 70px; /* Reduced height when scrolled */
+    transition: all 0.4s ease;
+}
+
+/* Logo styling */
+.navbar .logo {
+    font-size: 2rem; /* Increased font size */
+    font-weight: bold;
+    margin-right: auto;
+    color: white; /* Changed to white for better contrast */
+    font-family: 'Montserrat', sans-serif; /* Updated font family */
+    letter-spacing: 1.2px; /* Added letter spacing */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.navbar .logo span {
+    color: #ff8c00; /* Brighter orange for better visibility */
+    text-transform: uppercase; /* Make span uppercase */
+    font-weight: 800; /* Extra bold for emphasis */
+}
+
+/* Logo hover effect */
+.navbar .logo:hover {
+    color: #f1f1f1;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Enhanced shadow */
+    transform: scale(1.05); /* Slight scale effect */
+    transition: all 0.3s ease;
+}
+
+/* Nav links styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem; /* Increased gap */
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e0e0e0; /* Lighter gray for better readability */
+    font-size: 1.1rem; /* Increased font size */
+    font-weight: 500; /* Added font weight */
+    padding: 0.7rem 1.2rem; /* Increased padding */
+    transition: all 0.3s ease;
+    border-radius: 8px; /* Increased border radius */
+    text-transform: uppercase; /* Added uppercase */
+    letter-spacing: 0.5px; /* Added letter spacing */
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 140, 0, 0.15); /* Subtle orange background */
+    color: #ff8c00; /* Orange on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active link indicator */
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Increased distance */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px; /* Thicker line */
+    background-color: #ff8c00; /* Changed to orange */
+    transition: width 0.4s ease; /* Smoother transition */
+    border-radius: 3px; /* Rounded edges */
+}
+
+.nav-links li:hover::after {
+    width: 80%; /* Not full width for better styling */
+}
+
+/* Auth buttons styling */
+.auth-buttons {
+    position: relative;
+}
+
+.auth-dropdown {
+    background-color: #ff8c00; /* Orange background */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px; /* Rounded corners */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.auth-dropdown:hover {
+    background-color: #e67e00; /* Darker orange on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.auth-dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 0.8rem 0;
+    width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.auth-buttons:hover .auth-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.auth-dropdown-menu li {
+    padding: 0;
+    transition: background-color 0.3s;
+}
+
+.auth-dropdown-menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    display: block;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.auth-dropdown-menu a:hover {
+    background-color: rgba(255, 140, 0, 0.15);
+    color: #ff8c00;
+    padding-left: 1.8rem; /* Indent on hover */
+}
+
+
+/* Hamburger menu styling */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.1);
+    color: #ff8c00;
+}
+
+/* Image container styling */
+.image-container {
+    position: relative;
+    height: 100%; /* Adjust height as needed */  
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s ease; /* Slow zoom effect */
+    filter: brightness(0.7); /* Slightly darken the image */
+}
+
+.image-container:hover img {
+    transform: scale(1.05); /* Slow zoom on hover */
+}
+
+/* Band details styling */
+.band-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+.band-details:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker on hover */
+    transform: translate(-50%, -50%) scale(1.02); /* Slight scale effect */
+}
+
+.band-details h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    color: #ff8c00; /* Orange color for title */
+}
+
+.band-details p {
+    color: white; 
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    
+}
+
+.band-details h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+.band-details h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    color: #ff8c00;
+    
+}
+
+
+.band-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    color: #e0e0e0;
+}
+
+/* Explore button styling */
+.explore-button {
+    background-color: #ff8c00;
+    color: white;
+    border: 2px solid #ff8c00;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.explore-button:hover {
+    background-color: transparent;
+    color: #ff8c00;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+}
+
+/* Social links styling */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 140, 0, 0.3);
+    color: #ff8c00;
+    transform: translateY(-3px);
+}
+
+/* About section styling */
+.about-section {
+    padding: 5rem 2rem;
+    background-color: #111;
+    color: white;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #ff8c00;
+    position: relative;
+    display: inline-block;
+}
+
+.about-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ff8c00;
+    border-radius: 2px;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.about-button {
+    background-color: #ff8c00;
+    color: white;
+    border: 2px solid #ff8c00;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-button:hover {
+    background-color: transparent;
+    color: #ff8c00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Contact section styling */
+.contact-section {
+    padding: 5rem 2rem;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #ff8c00;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ff8c00;
+    border-radius: 2px;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-button:hover {
+    background-color: #e67e00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Blog section styling */
+.blog-section {
+    padding: 5rem 2rem;
+    background-color: #111;
+    color: white;
+}
+
+.blog-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.blog-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #ff8c00;
+    position: relative;
+    display: inline-block;
+}
+
+.blog-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ff8c00;
+    border-radius: 2px;
+}
+
+.blog-content > p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: #e0e0e0;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.blog-post {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 140, 0, 0.3);
+}
+
+.blog-post h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #ff8c00;
+}
+
+.blog-post p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.read-more-button {
+    background-color: transparent;
+    color: #ff8c00;
+    border: 2px solid #ff8c00;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #ff8c00;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Footer styling */
+.footer {
+    background-color: #0a0a0a;
+    color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #ff8c00;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ff8c00;
+    border-radius: 2px;
+}
+
+.footer p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #bbb;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    padding-left: 15px;
+}
+
+.footer-links a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff8c00;
+    padding-left: 20px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+.footer-social .social-links {
+    justify-content: flex-start;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .band-details h1 {
+        font-size: 2.8rem;
+    }
+    .band-details h2 {
+        font-size: 1.8rem;
+    }
+    .band-details h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: all 0.4s ease;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .auth-buttons {
+        margin-left: 0;
+    }
+    
+    .band-details {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .band-details h1 {
+        font-size: 2.2rem;
+    }
+    
+    .band-details h2 {
+        font-size: 1.5rem;
+    }
+    
+    .band-details h3 {
+        font-size: 1.2rem;
+    }
+    
+    .explore-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .about-content h2,
+    .contact-content h2,
+    .blog-content h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .navbar .logo {
+        font-size: 1.6rem;
+    }
+    
+    .band-details h1 {
+        font-size: 1.8rem;
+    }
+    
+    .band-details p {
+        font-size: 1rem;
+    }
+    
+    .band-details h2 {
+        font-size: 1.3rem;
+    }
+    
+    .band-details h3 {
+        font-size: 1rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+    }
+    
+    .blog-posts {
+        grid-template-columns: 1fr;
+    }
+}
